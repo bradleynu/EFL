@@ -1,0 +1,409 @@
+@font-face {
+    font-family: 'camporabold';
+    src: url('../fonts/campora/fontsfree-net-campora-bold-webfont.woff2') format('woff2'),
+         url('../fonts/campora/fontsfree-net-campora-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+body {
+    background-color:#750f0f;
+}
+
+a[hreflang="en-US"] img {
+    content: url('https://enlafama.csdev1.com/wp-content/uploads/2024/09/american-flag-poster-1-1.png'); /* Ruta de tu imagen personalizada */
+    width: 42px !important;
+    height: 25px !important;
+	object-fit: contain;
+}
+
+a[hreflang="es-PR"] img {
+    content: url('https://enlafama.csdev1.com/wp-content/uploads/2024/09/flag-of-spain-logo-ECE6030928-seeklogo.com_.png'); /* Ruta de tu imagen personalizada */
+    width: 42px !important;
+    height: 25px !important;
+	object-fit: contain;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output, .wpcf7 form.unaccepted .wpcf7-response-output, .wpcf7 form.payment-required .wpcf7-response-output {
+	background: white;
+	border: none;
+	text-transform: uppercase;
+	font-family: 'bignoodletitling';
+	color: #750f0f;
+	font-size: 22px;
+}
+#main-menu-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.wpcf7 form.sent .wpcf7-response-output {
+	background: white;
+	border: none;
+	text-transform: uppercase;
+	font-family: 'bignoodletitling';
+	color: #750f0f;
+	font-size: 22px;
+}
+/* Estilos generales para el lang switcher */
+.lang-item {
+      display: inline-block;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border-radius: 0px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+    width: fit-content;
+    margin: 10px auto 0px auto;
+}
+
+/* Estilo del enlace */
+.lang-item a {
+    text-decoration: none; /* Sin subrayado */
+    color: #333; /* Color del texto */
+    font-weight: bold; /* Texto en negrita */
+    display: flex; /* Flexbox para centrar el contenido */
+    align-items: center; /* Alinear verticalmente */
+}
+
+/* Estilo para la imagen */
+.lang-item img {
+    margin-right: 0.3em; /* Espacio a la derecha de la imagen */
+}
+
+/* Estilo del texto */
+.lang-item span {
+    font-size: 14px; /* Tamaño de fuente */
+    color: #333; /* Color del texto */
+}
+
+header span {
+    margin-left: 0.3em;
+    text-transform: uppercase;
+    font-family: 'bignoodletitling';
+    color: white;
+    font-size: 18px;
+    margin-bottom: 0px;
+	position: relative;
+	top: 2px;
+}
+header li a img {
+    width: 20px !important;
+    height: 13px !important;
+}
+header#masthead {
+    background-color:#750f0f;
+    padding: 20px 0px;
+}
+header#masthead img {
+    max-width: 250px;
+}
+#main-banner {
+    background-size: cover;
+    height: calc(49vh - 20px);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.wpcf7 input {
+    width: 100%;
+    max-width: 100%;
+    background-color: white;
+    font-family: 'campora';
+    padding: 10px 20px;
+    border: none;
+    min-height: 46px;
+    margin-bottom: 10px;
+}
+.wpcf7 input[type=submit] {
+    font-family: 'bignoodletitling';
+    width: fit-content;
+    color: #000;
+    font-size: 2rem;
+    padding: 0px 40px;
+    margin: 20px 0px;
+}
+.wpcf7 .aceptance .wpcf7-list-item label{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+.wpcf7-spinner {
+    display: none;
+}
+.wpcf7 .aceptance .wpcf7-list-item label span {
+    color: #fff;
+    font-size: 12px;
+    text-align: justify;
+    font-family: 'Campora';
+    line-height: 1;
+    font-size: 13px;
+}
+.wpcf7 .aceptance .wpcf7-list-item label input {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+.wpcf7 input:focus-visible {
+    outline: none;
+    box-shadow: 0px 0px 1px 1px red;
+}
+.wpcf7 input::placeholder {
+    color: #000!important;
+    font-family: 'campora'!important;
+    text-align: center!important;
+    font-weight: bold!important;
+}
+.wpcf7-not-valid-tip {
+    background-color: #f1f1f1;
+    font-size: 10px;
+    padding: 7px 4px;
+    border-top: solid 1px #3a3a3a33;
+    text-align: center;
+    position: relative;
+    top: -10px;
+}
+
+#main-form {
+    padding: 20px 0px;
+}
+#main-form h2 {
+    text-transform: uppercase;
+    font-family: 'bignoodletitling';
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+.pic-container {
+    position: relative;
+    background: white;
+    padding: 0px 0px;
+}
+.pic-container input {
+    z-index: 99;
+    position: relative;
+    opacity: 0;
+    padding: 0px;
+}
+.pic-container .pic-img {
+    background: white;
+    top: 10px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    margin: auto;
+    width: 65%;
+}
+.pic .pic-info {
+    color: #fff;
+    font-size: 12px;
+    text-align: left;
+}
+.pic p {
+    text-align: left;
+    margin-bottom: 0px;
+}
+.aceptance {
+    margin-top: 10px;
+}
+
+.date-container {
+    position: relative;
+}
+.date-container .date-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-family: 'campora';
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    max-height: 46px;
+}
+.date span.pic-info {
+    position: absolute;
+}
+.date span.pic-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-family: 'campora';
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+p {
+    margin-bottom: 0px;
+}
+br {
+    display: none;
+}
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .date span.pic-info {
+        font-size: 22px;
+    }
+    .wpcf7 input::placeholder {
+        font-size: 1.4rem;
+    }
+    .wpcf7 input {
+        padding: 20px;
+    }
+    .pic-container .pic-img {
+        top: 15px;
+        width: 340px
+    }
+    #main-form h2 {
+        font-size: 4rem;
+    }
+    .wpcf7 .aceptance .wpcf7-list-item label span {
+        font-size: 1.2rem;
+    }
+    .pic .pic-info {
+        font-size: 16px;
+    }
+    .aceptance {
+        margin-top: 20px;
+    }
+    .wpcf7-not-valid-tip {
+        font-size: 13px;
+    }
+    .date-container .date-info {
+        max-height: 65px;
+        font-size: 23px;
+    }
+    .wpcf7 input {
+        min-height: 67px;
+    }
+  }
+
+  /* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+    .pic-container .pic-img {
+        top: 15px;
+        width: 40%;
+    }
+    .wpcf7 .spr {
+    padding-right: 5px;
+}
+.wpcf7 .spl {
+    padding-left: 5px;
+}
+    .date span.pic-info {
+        font-size: 22px;
+    }
+  }
+  
+
+  
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) {
+    .wpcf7 .spr {
+    padding-right: 5px;
+}
+.wpcf7 .spl {
+    padding-left: 5px;
+}
+	a[hreflang="en-US"] img {
+    content: url('https://enlafama.csdev1.com/wp-content/uploads/2024/09/american-flag-poster-1-1.png'); /* Ruta de tu imagen personalizada */
+    width: 55px !important;
+    height: 35px !important;
+	object-fit: contain;
+}
+
+a[hreflang="es-PR"] img {
+    content: url('https://enlafama.csdev1.com/wp-content/uploads/2024/09/flag-of-spain-logo-ECE6030928-seeklogo.com_.png'); /* Ruta de tu imagen personalizada */
+    width: 44px !important;
+    height: 35px !important;
+	object-fit: contain;
+}
+	.lang-item {
+		margin: 0px auto;
+	}
+	header span {
+		margin-left: 0.3em;
+		text-transform: uppercase;
+		font-family: 'bignoodletitling';
+		color: white;
+		font-size: 18rem;
+		margin-bottom: 0px;
+	}
+    .date-container .date-info {
+        max-height: 72px;
+    }
+    .date span.pic-info {
+        font-size: 23px;
+    }
+    .wpcf7 input::placeholder {
+        font-size: 2.2rem!important;
+    }
+    .wpcf7 input {
+        padding: 20px 20px;
+        font-size: 2.3rem;
+        min-height: 75px;
+    }
+	.date-container .date-info {
+		font-size: 2.2rem;
+	}
+	.codedropz-upload-inner h3 {
+	    color: #fff!important;
+	}
+	.wpcf7 .aceptance .wpcf7-list-item label span, .wpcf7 .aceptance .wpcf7-list-item label span a {
+        font-size: 1.9rem!important;
+        line-height: 1.3;
+
+	}
+    .pic-container .pic-img {
+        top: 20px;
+        width: 300px
+    }
+    .wpcf7 .aceptance .wpcf7-list-item label span {
+        font-size: 1rem;
+    }
+    .pic .pic-info {
+        font-size: 16px;
+    }
+    .aceptance {
+        margin-top: 20px;
+    }
+    .wpcf7 {
+        width: 60%;
+        margin: auto;
+    }
+    #main-form h2 {
+               font-size: 7rem;
+    }
+    .wpcf7 input[type=submit] {
+        font-size: 3.5rem;
+    }
+    .wpcf7-not-valid-tip {
+        font-size: 1.2rem;
+    }
+  }

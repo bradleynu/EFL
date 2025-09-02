@@ -145,39 +145,36 @@ add_action('widgets_init', 'lanco_widgets_init');
 /**
  * Enqueue scripts and styles.
  */
-function lanco_scripts()
-{
-  global $efl_theme_version;
 
-  wp_enqueue_style('lanco-style', get_stylesheet_uri(), false, $efl_theme_version);
-  wp_enqueue_style('owl-carousel', get_template_directory_uri() . '/assets/owl.carousel.css', array(), $efl_theme_version);
-  wp_enqueue_style('owl-carousel-theme', get_template_directory_uri() . '/assets/owl.theme.default.css', array(), $efl_theme_version);
-
-
-  //wp_enqueue_script('lanco-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true);
-  //wp_enqueue_script('lanco-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
-
-  wp_enqueue_script('owl-carouseljs', get_template_directory_uri() . '/assets/owl.carousel.min.js', ('jquery-lib'), $efl_theme_version, true);
-
-  if (is_singular() && comments_open() && get_option('thread_comments')) {
-    wp_enqueue_script('comment-reply');
-  }
-
-  wp_enqueue_style('lanco-libraries', get_template_directory_uri() . '/assets/dist/css/libs.min.css', array(), $efl_theme_version);
-  wp_enqueue_style('lanco-main', get_template_directory_uri() . '/assets/dist/css/style.css', array('lanco-libraries'), $efl_theme_version);
-
-  wp_enqueue_script('lanco-libraries', get_template_directory_uri() . '/assets/dist/js/libs.min.js', array(), $efl_theme_version, true);
-  wp_enqueue_script('lanco-app', get_template_directory_uri() . '/assets/dist/js/app.js', array('lanco-libraries'), $efl_theme_version, true);
-
-
-}
-add_action('wp_enqueue_scripts', 'lanco_scripts');
 
 add_action('show_admin_bar', '__return_false');
 
 /**
  * Seaech
  */
+function lanco_scripts() {
+     echo '<!-- DEBUG: Owl Carousel path:'.
+     get_template_directory_uri().'/assets/owl.carousel.min.js -->';
+     global $efl_theme_version;
+     echo $efl_theme_version;
+    
+    // CSS
+    wp_enqueue_style('lanco-style', get_stylesheet_uri(), false, $efl_theme_version);
+    wp_enqueue_style('owl-carousel', get_template_directory_uri() . '/assets/owl.carousel.css', array(), $efl_theme_version);
+    wp_enqueue_style('owl-carousel-theme', get_template_directory_uri() . '/assets/owl.theme.default.css', array(), $efl_theme_version);
+    wp_enqueue_style('lanco-libraries', get_template_directory_uri() . '/assets/dist/css/libs.min.css', array(), $efl_theme_version);
+    wp_enqueue_style('lanco-main', get_template_directory_uri() . '/assets/dist/css/style.css', array('lanco-libraries'), $efl_theme_version);
+    
+    // JavaScript
+    wp_enqueue_script('owl-carousel-js', get_template_directory_uri() . '/assets/owl.carousel.min.js', array('jquery'), $efl_theme_version, true);
+    wp_enqueue_script('lanco-libraries', get_template_directory_uri() . '/assets/dist/js/libs.min.js', array('jquery'), $efl_theme_version, true);
+    wp_enqueue_script('lanco-app', get_template_directory_uri() . '/assets/dist/js/app.js', array('lanco-libraries'), $efl_theme_version, true);
+    
+    if (is_singular() && comments_open() && get_option('thread_comments')) {
+        wp_enqueue_script('comment-reply');
+    }
+}
+add_action('wp_enqueue_scripts', 'lanco_scripts');
 function shop_order_user_role_posts_where($query)
 {
   if (!$query->is_main_query() || !isset($_GET['_user_role'])) {

@@ -153,10 +153,7 @@ add_action('show_admin_bar', '__return_false');
  * Seaech
  */
 function lanco_scripts() {
-     echo '<!-- DEBUG: Owl Carousel path:'.
-     get_template_directory_uri().'/assets/owl.carousel.min.js -->';
      global $efl_theme_version;
-     echo $efl_theme_version;
     
     // CSS
     wp_enqueue_style('lanco-style', get_stylesheet_uri(), false, $efl_theme_version);

@@ -1,40 +1,45 @@
 <?php
 /**
- * @package WordPress
- * @subpackage Theme_Compat
- * @deprecated 3.0.0
+ * The template for displaying the footer
  *
- * This file is here for backward compatibility with old themes and will be removed in a future version
+ * @package EFL_Theme
  */
-_deprecated_file(
-	/* translators: %s: Template name. */
-	sprintf( __( 'Theme without %s' ), basename( __FILE__ ) ),
-	'3.0.0',
-	null,
-	/* translators: %s: Template name. */
-	sprintf( __( 'Please include a %s template in your theme.' ), basename( __FILE__ ) )
-);
 ?>
 
-<hr />
-<div id="footer" role="contentinfo">
-<!-- If you'd like to support WordPress, having the "powered by" link somewhere on your blog is the best way; it's our only promotion or advertising. -->
-	<p>
-		<?php
-		printf(
-			/* translators: 1: Site name, 2: WordPress */
-			__( '%1$s is proudly powered by %2$s' ),
-			get_bloginfo( 'name' ),
-			'<a href="https://wordpress.org/">WordPress</a>'
-		);
-		?>
-	</p>
-</div>
-</div>
+    </div><footer id="colophon" class="site-footer">
+        <div class="site-info">
+            <p>
+                <?php
+                printf(
+                    /* translators: 1: Site name */
+                    esc_html__( '© %1$s %2$s. Todos los derechos reservados.', 'efl' ),
+                    date_i18n('Y'),
+                    get_bloginfo('name')
+                );
+                ?>
+            </p>
+        </div></footer></div><script id="hamburger-menu-script">
+/* ===== JS PARA EL MENÚ DE HAMBURGUESA ===== */
+document.addEventListener('DOMContentLoaded', function() {
+    // Busca el botón de la hamburguesa en la página
+    const burgerButton = document.querySelector('.hm-burger');
+    // Busca el menú de navegación que queremos mostrar/ocultar
+    const mobileNav = document.querySelector('.hm-header__nav');
 
-<!-- Gorgeous design by Michael Heilemann - http://binarybonsai.com/ -->
-<?php /* "Just what do you think you're doing Dave?" */ ?>
+    // Si ambos existen en la página...
+    if (burgerButton && mobileNav) {
+        // ...espera a que alguien haga clic en la hamburguesa
+        burgerButton.addEventListener('click', function() {
+            // Cuando hagan clic, alterna la clase 'is-active' en el botón
+            burgerButton.classList.toggle('is-active');
+            // Y también alterna la misma clase en el menú de navegación
+            mobileNav.classList.toggle('is-active');
+        });
+    }
+});
+</script>
 
-		<?php wp_footer(); ?>
+<?php wp_footer(); ?>
+
 </body>
 </html>

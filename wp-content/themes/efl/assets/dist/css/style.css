@@ -72,10 +72,23 @@ button.btn-more, #hero .slide-type-1 h3 {
 }
 #life p {
   color: white;
+}/* --- 1. AUMENTAR ESPACIO EN BLANCO ENTRE SECCIONES --- */
+
+/* Aumenta el padding vertical en las secciones principales */
+#life, 
+#rompe-pecho-section, 
+.category-container {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+}
+
+/* Ajustes para la sección de categorías para que se vea bien con el nuevo padding */
+.cate {
+    padding-bottom: 60px;
 }
 .cate {
   background: linear-gradient(to top, #094d75 32%, #ffffff 32%);
-  padding-bottom: 50px;
+  padding-bottom: 60px;
   min-height: 600px;
 }
 
@@ -1578,6 +1591,49 @@ a.title-more {
   font-weight: bold;
   margin: 0;
 }
+/* --- 2. AUMENTAR TAMAÑO DE TÍTULOS --- */
+
+/* Títulos principales (ej. "¿QUÉ ES LA GRIPE?") */
+.title1, .main-title h2, #life h2, #rompe-pecho-section .rompe-pecho-title {
+    font-size: 60px !important; /* Aumentado de 40px */
+    margin-bottom: 35px !important;
+}
+
+/* Subtítulos (ej. nombres de categorías de productos) */
+.title2, h3, h2.entry-title {
+    font-size: 42px; /* Aumentado de 20px */
+    margin-bottom: 30px;
+}
+/* --- 3. CREAR TARJETAS CON SOMBRA PARA PRODUCTOS --- */
+
+/* Estilo de tarjeta para los contenedores de categorías */
+.category-container {
+    background-color: #d70b0b; /* Un fondo gris muy claro para toda la sección */
+}
+
+.product-category a {
+    background-color: #ffffff; /* Fondo blanco para la tarjeta */
+    border-radius: 12px;       /* Esquinas redondeadas */
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+    text-decoration: none;
+    display: block; /* Asegura que el contenedor 'a' ocupe el espacio */
+    margin-bottom: 20px;
+}
+
+/* Efecto al pasar el mouse por encima de la tarjeta */
+.product-category a:hover {
+    transform: translateY(-5px); /* Eleva la tarjeta ligeramente */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Sombra más pronunciada */
+}
+
+/* Ajuste para la imagen dentro de la tarjeta */
+.product-category img {
+    margin-bottom: 15px; /* Espacio entre la imagen y el texto */
+}
+
+
 @media only screen and (max-width: 767px) {
   .title1, .main-title h2 {
     font-size: 28px;
@@ -1763,6 +1819,7 @@ h4.sub-title a:hover {
       top: 0px;
     }
   }
+
 .woocommerce form.login {
   border: 1px solid #eeeeee;
   padding: 20px;
@@ -1985,10 +2042,18 @@ h4.sub-title a:hover {
     top: 8px;
     width: 14px;
   }
-  #life img {
-    top: -25%!important;
-    right: 4%!important;
-  }
+  /* --- CORRECCIÓN PARA IMAGEN Y TÍTULO EN SECCIÓN 'LIFE' --- */
+
+#life img {
+    position: absolute;
+    top: 0px; /* 1. Establecemos un punto de partida fijo en la parte superior del contenedor */
+    right: 8%;
+    transform: translateY(1000%); /* 2. Movemos la imagen hacia arriba un 45% de SU PROPIA ALTURA */
+    
+    /* Mantenemos el resto de tus estilos */
+    max-width: 51%;
+    z-index: 99;
+}
   #life h2 {
     font-size: 23px!important;
     text-align: center!important;
@@ -2450,7 +2515,7 @@ body {
 	position: absolute;
 	overflow: hidden;
 	background-position: center;
-	top: 54px;
+	top: 0px;
 	justify-content: center;
   align-items: center;
 	align-items: center;
@@ -3863,100 +3928,136 @@ section#hero {
 		justify-content: center;
 		align-items: center;
 	}
-/* ===== Header estilo HM ===== */
-.hm-header__bar {
-  background:#f7f5f5;
-  position:sticky;
-  top:0;
-  z-index: 1000;
-  box-shadow: 0 1px 0 rgba(0,0,0,.06);
-}
-.hm-header__bar{ background:#094d75 !important; }
 
-.hm-header__container {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0px 0px;
-  display:flex;
-  align-items:center;
-  gap: 20px;
-}
-
-.hm-header__logo img { height: 70px; width:auto; display:block; }
-
-
-.hm-header__nav { flex: 1 1 auto; }
-.hm-menu { display:flex; gap: 34px; list-style:none; margin:0; padding:0; }
-.hm-menu > li > a {
-  position:relative;
-  display:inline-block;
-  padding: 10px 0;
-  color:#eceff2;            /* azul oscuro */
-  font-weight:600;
-  text-decoration:none;
-}
-.hm-menu > li > a::after {
-  content:"";
-  position:absolute; left:0; right:0; bottom:-8px;
-  height:4px; width:0;
-  margin:0 auto;
-  background:#69c19b;       /* verde subrayado */
-  transition: width .25s ease;
-  border-radius: 2px;
-}
-.hm-menu > li.current-menu-item > a::after,
-.hm-menu > li > a:hover::after {
-  width: 100%;
-}
-
-.hm-header__actions {
-  display:flex; align-items:center; gap:16px;
-}
-.hm-lang img { width:20px; height:auto; display:block; }
-.hm-social a {
-  color:#95a1ab; font-size:18px; line-height:1;
-}
-.hm-social a:hover { color:#f6fbfe; }
-
-.hm-burger {
-  display:none;
-  background:none; border:0; padding:6px; margin-left: 6px;
-}
-.hm-burger span {
-  display:block; width:22px; height:2px; background:#0c3452; margin:5px 0; transition:.2s;
-}
-
-/* Buscador desplegable */
-.hm-search[hidden] { display:none !important; }
-.hm-search { background:#f7f9fb; border-top:1px solid #e6edf3; }
-.hm-search__container { max-width: 920px; margin:0 auto; padding:16px 20px; }
-.hm-search form { display:flex; }
-.hm-search input[type="search"] { flex:1; padding:10px 12px; border:1px solid #cfd8e3; border-radius:8px 0 0 8px; }
-.hm-search input[type="submit"], .hm-search button[type="submit"] {
-  padding:10px 14px; border:1px solid #cfd8e3; border-left:0; border-radius:0 8px 8px 0; background:#0c3452; color:#fff;
-}
-
-/* Responsive */
-@media (max-width: 1024px){
-  .hm-menu { gap:22px; }
-}
-@media (max-width: 900px){
-  .hm-header__nav { display:none; }
-  .hm-burger { display:inline-block; }
-  .hm-header__container { justify-content:space-between; }
-  /* menú móvil simple (dropdown) */
-  .hm-menu--mobile {
-    display:block; padding:10px 20px; border-top:1px solid #eef2f6;
-    background:#fff;
-  }
   .hm-menu--mobile li { border-bottom:1px solid #f1f4f7; }
   .hm-menu--mobile a { display:block; padding:12px 0; }
-}
+
 /* ====== Header HM ====== */
-.hm-header__bar{
-  background:#fff;
-  border-bottom:1px solid rgba(0,0,0,.06);
-  position:sticky; top:0; z-index:1000;
+/* ====== Header Unificado y Corregido ====== */
+
+/* Barra principal del header */
+.hm-header__bar {
+    background: #094d75; /* Color de fondo azul oscuro principal */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Borde inferior sutil */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.hm-header__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 16px; /* Un poco menos de padding vertical */
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+/* Logo */
+.hm-header__logo img {
+    display: block;
+    max-height: 50px; /* Ajusta el tamaño de tu logo aquí */
+    width: auto;
+}
+
+/* Menú de Navegación */
+.hm-header__nav {
+    flex: 1 1 auto; /* Ocupa el espacio disponible */
+}
+
+.hm-menu,
+.hm-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hm-menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.hm-menu a {
+    display: inline-block;
+    padding: 8px 0;
+    color: #ffffff; /* Color de texto del menú: BLANCO */
+    text-decoration: none;
+    font-weight: 500; /* Un poco más ligero que bold */
+}
+
+/* Línea verde de abajo al pasar el mouse */
+.hm-menu > li > a::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 0;
+    background: #41a42b; /* Color verde para la línea de hover/activo */
+    border-radius: 2px;
+    transition: width 0.25s;
+    margin-top: 4px; /* Pequeño espacio entre el texto y la línea */
+}
+
+.hm-menu > li:hover > a::after,
+.hm-menu > li.current-menu-item > a::after,
+.hm-menu > li.current-menu-ancestor > a::after {
+    width: 100%;
+}
+
+/* Acciones de la derecha (Profile, Cart, etc.) */
+.hm-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 18px; /* Un poco más de espacio entre iconos */
+    flex: 0 0 auto;
+}
+
+/* Color de los iconos de la derecha */
+.hm-header__actions .fa {
+    color: #ffffff; /* Color de los iconos: BLANCO */
+    font-size: 20px; /* Tamaño de los iconos */
+    transition: color 0.3s ease;
+}
+
+/* Color al pasar el mouse sobre los iconos */
+.hm-header__actions a:hover .fa,
+.hm-header__actions button:hover .fa {
+    color: #cccccc; /* Un gris claro para el hover */
+}
+
+/* Texto debajo de los iconos (si existe) */
+.hm-action-text {
+    display: none; /* Ocultamos el texto para un look más limpio, como en tu diseño original */
+}
+
+/* Hamburguesa para móvil */
+.hm-burger {
+    display: none; /* Oculto en escritorio */
+    width: 36px;
+    height: 36px;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Líneas de la hamburguesa */
+.hm-burger span {
+    display: block;
+    height: 2px;
+    background: #ffffff !important; /* Color de las líneas: BLANCO */
+    margin: 6px 0;
+    transition: 0.2s;
+}
+
+/* Responsive (cuando la pantalla se hace más pequeña) */
+@media (max-width: 992px) {
+    .hm-header__nav {
+        display: none; /* Oculta el menú principal */
+    }
+    .hm-burger {
+        display: inline-block; /* Muestra la hamburguesa */
+    }
 }
 .hm-header__container{
   max-width:1200px; margin:0 auto;
@@ -3973,11 +4074,16 @@ section#hero {
 .hm-menu > li{ position:relative; }
 .hm-menu a{
   display:inline-block; padding:8px 0;
-  color:#0f3b57; text-decoration:none; font-weight:600;
+  color:#f3f6f8; text-decoration:none; font-weight:600;
 }
 .hm-menu > li > a::after{
-  content:""; display:block; height:3px; width:0;
-  background:#6fc3a2; border-radius:2px; transition:width .25s;
+  content:""; 
+  display:block;
+   height:3px;
+  width:0;
+  background:#6fc3a2;
+  border-radius:2px; 
+  transition:width .25s;
 }
 .hm-menu > li:hover > a::after,
 .hm-menu > li.current-menu-item > a::after,
@@ -3986,8 +4092,8 @@ section#hero {
 /* Submenús (dropdown) */
 .hm-menu .sub-menu{
   position:absolute; left:0; top:100%;
-  min-width:220px; background:#fff; border:1px solid rgba(0,0,0,.08);
-  box-shadow:0 10px 20px rgba(0,0,0,.08);
+  min-width:220px; background:#f9fcfc; border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 10px 20px rgba(225, 20, 20, 0.08);
   padding:10px 0; display:none; z-index:1001;
 }
 .hm-menu li:hover > .sub-menu{ display:block; }
@@ -4011,11 +4117,11 @@ section#hero {
 
 /* Idiomas / redes */
 .hm-lang img{ display:inline-block; height:16px; width:auto; margin-left:8px; }
-.hm-social a{ color:#5b7282; margin-left:8px; }
+.hm-social a{ color:#cd1f1c; margin-left:8px; }
 .hm-social a:hover{ color:#f4f7f9; }
 
 /* Botones */
-.hm-search__toggle{ color:#0f3b57; }
+.hm-search__toggle{ color:#b6c5ce; }
 .hm-burger{ display:none; width:36px; height:36px; border:0; background:transparent; padding:0; }
 .hm-burger span{ display:block; height:2px; background:#0f3b57; margin:6px 0; transition:.2s; }
 
@@ -4038,4 +4144,161 @@ section#hero {
   .hm-social{ display:none; }
   .hm-lang{ display:none; }
 }
+/* Estilos para el menú móvil cuando está activo */
+@media (max-width: 992px) {
+    .hm-header__nav.is-active {
+        display: block; /* Muestra el menú */
+        position: absolute;
+        top: 100%; /* Justo debajo de la barra del header */
+        left: 0;
+        right: 0;
+        background-color: #094d75; /* Mismo fondo que el header */
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
 
+    /* Hace que los elementos del menú se apilen verticalmente */
+    .hm-header__nav.is-active .hm-menu {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    .hm-header__nav.is-active .hm-menu li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hm-header__nav.is-active .hm-menu li:last-child {
+        border-bottom: none;
+    }
+
+    .hm-header__nav.is-active .hm-menu a {
+        padding: 15px 10px;
+        width: 100%;
+    }
+    
+    .hm-header__nav.is-active .hm-menu > li > a::after {
+        display: none; /* Oculta la línea verde en móvil */
+    }
+
+    /* Opcional: Anima la hamburguesa para que se convierta en una 'X' */
+    .hm-burger.is-active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    .hm-burger.is-active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hm-burger.is-active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+}
+/*
+ * Corrección de apilamiento del Header
+ * -------------------------------------------------- */
+
+/* Asegura que toda la barra del header esté por encima de otros contenidos */
+.hm-header {
+    position: relative; /* z-index necesita una propiedad 'position' para funcionar */
+    z-index: 1001;      /* Un número alto para garantizar que esté al frente */
+}
+
+body {
+    margin-top: 0 !important;
+}
+
+/* Añade un relleno superior al contenido principal para dejar espacio al header */
+main {
+    padding-top: 85px; /*se ajusta este valor dependiendo del header*/
+}
+
+/*Aqui inicia el nuevo diseño de tarjeta que van a ir en las categorias (al darle click)*/
+
+.product-item {
+  background: #ffffff;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* aqui se alineara el contenido verticalmente*/
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/*aqui mostrara un efecto llamado hover alpasar el mouse por encima*/
+
+.product-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgb(59, 166, 73);
+  /*box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);  Sombra más pronunciada */
+
+}
+
+.product-item .thumbnail {
+  margin-bottom: 15px;
+}
+
+.product-item .thumbnail img {
+  max-width: 100%;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.product-item h5 {
+  color: #174d75;
+  font-size: 18px;
+  font-weight: bold;
+  min-height: 40px;
+  margin-bottom: 10px;
+}
+.product-item span.price {
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.product-item .button {
+    background-color: #094d75 !important;
+    color: #ffffff !important;
+    border-radius: 8px !important;
+    padding: 10px 20px !important;
+    font-weight: bold !important;
+    display: inline-block; /* Asegura que el botón se muestre correctamente */
+    text-transform: uppercase;
+    font-size: 14px !important;
+}
+
+.product-item .button:hover {
+  background-color: #232020 !important;
+  color: #ffffff !important;
+  text-decoration: none; /* Elimina el subrayado al pasar el mouse */
+}
+
+
+/*aqui iniciara el responsive para la cuadricula de los prod */
+
+@media (max-width: 992px) {
+  ul.products li.product {
+    width: 48% ;
+    margin-right:
+     3%; 
+  }
+  ul.products li.product:nth-child(2n) {
+        margin-right: 0;
+    }
+}
+@media (max-width: 767px) {
+    /* Le decimos a cada producto que ocupe el 100% del ancho para que se apilen uno sobre otro */
+    ul.products li.product {
+        width: 100%;
+        margin-right: 0;
+    }
+}

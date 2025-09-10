@@ -49,7 +49,7 @@ if ( function_exists( 'wp_body_open' ) ) {
                     <i class="fa fa-heart-o"></i>
                     <span class="hm-action-text"><?php esc_html_e('Wish List', 'efl'); ?></span>
                 </a>
-                 <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="hm-action-link" aria-label="<?php esc_attr_e('Cart', 'efl'); ?>">
+                <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="hm-action-link" aria-label="<?php esc_attr_e('Cart', 'efl'); ?>">
                     <i class="fa fa-shopping-cart"></i>
                     <span class="hm-action-text"><?php esc_html_e('Cart', 'efl'); ?></span>
                 </a>
@@ -57,12 +57,6 @@ if ( function_exists( 'wp_body_open' ) ) {
                 <button class="hm-search__toggle" aria-expanded="false" aria-controls="hm-search" aria-label="<?php esc_attr_e('Toggle Search', 'efl'); ?>">
                     <i class="fa fa-search"></i>
                 </button>
-
-                <?php if ( function_exists('pll_the_languages') ) : ?>
-                    <div class="hm-lang">
-                        <?php pll_the_languages(['show_flags' => 1, 'show_names' => 0, 'hide_if_empty' => 0, 'dropdown' => 1]); ?>
-                    </div>
-                <?php endif; ?>
 
                 <button class="hm-burger" aria-expanded="false" aria-controls="hm-mobile-nav" aria-label="<?php esc_attr_e('Open Menu', 'efl'); ?>">
                     <span></span><span></span><span></span>

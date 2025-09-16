@@ -23,9 +23,7 @@ if ( function_exists( 'wp_body_open' ) ) {
     <div class="hm-header__bar">
         <div class="hm-header__container">
 
-            <a class="hm-header__logo" href="<?php echo esc_url( home_url('/') ); ?>" rel="home">
-                <img src="<?php echo esc_url(get_template_directory_uri()); ?>assets/dist/images/Logo-xs.png" alt="<?php esc_attr(get_bloginfo('name')); ?>">
-            </a>
+            <?php the_custom_logo(); // Logo corregido que se carga desde el Personalizador de WordPress ?>
 
             <nav class="hm-header__nav" aria-label="<?php esc_attr_e('Primary Menu', 'efl'); ?>">
                 <?php
@@ -76,4 +74,32 @@ if ( function_exists( 'wp_body_open' ) ) {
     </div>
     
     <nav id="hm-mobile-nav" class="hm-mobile-nav" hidden></nav>
-</header>
+
+    <script id="interactive-header-script">
+    jQuery(document).ready(function($) {
+        /* --- Lógica para el menú de hamburguesa --- */
+        const burgerButton = $('.hm-burger');
+        const mobileNav = $('.hm-header__nav');
+
+        if (burgerButton.length && mobileNav.length) {
+            burgerButton.on('click', function() {
+                burgerButton.toggleClass('is-active');
+                mobileNav.toggleClass('is-active');
+            });
+        }
+
+        /* --- Lógica para el buscador --- */
+        const searchToggleButton = $('.hm-search__toggle');
+        const searchContainer = $('#hm-search');
+
+        if (searchToggleButton.length && searchContainer.length) {
+            searchToggleButton.on('click', function() {
+                searchContainer.toggleClass('is-visible');
+                if (searchContainer.hasClass('is-visible')) {
+                    searchContainer.find('input[type="search"]').focus();
+                }
+            });
+        }
+    });
+    </script>
+    </header>

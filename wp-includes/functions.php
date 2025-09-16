@@ -7438,6 +7438,7 @@ function wp_auth_check_load() {
 	}
 }
 
+
 /**
  * Outputs the HTML that shows the wp-login dialog when the user is no longer logged in.
  *
@@ -9205,3 +9206,12 @@ function wp_unique_id_from_values( array $data, string $prefix = '' ): string {
 	$hash       = substr( md5( $serialized ), 0, 8 );
 	return $prefix . $hash;
 }
+function mi_tema_setup() {
+    add_theme_support( 'custom-logo', array(
+        'height'      => 50,  // Altura sugerida en píxeles
+        'width'       => 150, // Ancho sugerido en píxeles
+        'flex-height' => true,
+        'flex-width'  => true,
+    ) );
+}
+add_action( 'after_setup_theme', 'mi_tema_setup' );
